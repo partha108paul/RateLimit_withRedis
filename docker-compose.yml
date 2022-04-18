@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+    redis:
+        image: redis:6.0-alpine
+        container_name: redis.redisratelimiting.docker
+        restart: unless-stopped
+        ports:
+            - 127.0.0.1:${REDIS_PORT}:6379  #container port: local server port
+        networks:
+            - global
+networks:
+    global:
+        external: true
