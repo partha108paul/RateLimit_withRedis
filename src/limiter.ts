@@ -8,11 +8,12 @@ const requestIp = require("request-ip");
 // const { endpointUri, password } = require("../config").redis;
 // const redisClient = redis.createClient(`redis://${endpointUri}`, { password });
 // const redisClient = redis.createClient({ url: "redis://localhost:6379/" });
-// const redisClient = redis.createClient({ url: 'redis://redis:6379' });
+// const redisClient = redis.createClient({ url: "redis://0.0.0.0:6379/" });
+const redisClient = redis.createClient({ url: 'redis://redis:6379' });
 // const redisClient = redis.createClient(process.env.REDIS_URL);
 // const redisClient = redis.createClient({ url: "redis://redis:6379/" });
 // const redisClient = redis.createClient();
-const redisClient = redis.createClient(6379, 'redis');
+// const redisClient = redis.createClient(6379, 'redis');
 // const redisClient = redis.createClient({
 //   host: "redis",
 //   port: 6379,

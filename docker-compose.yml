@@ -26,17 +26,17 @@ services:
       # - AWS_SECRET_ACCESS_KEY=secret
       - NODE_PATH=dist/
       - NODE_ENV=development
-      - PORT=9001
-      - REDIS_URL=redis://redis.redisratelimiting.docker
+      - PORT=4001
+      # - REDIS_URL=redis://redis.redisratelimiting.docker
     volumes:
       - ./:/var/task
       - ./prisma:/var/task/prisma
     ports:
-      - "9000:8080"
-      - "9001:4000"
+      # - "9000:8080"
+      # - "9001:4000"
+      - 4001:4001
     working_dir: /var/task
     entrypoint: "/bin/bash"
-
 # networks:
 #   global:
 #     external: true
