@@ -1,14 +1,42 @@
-version: '3'
+version: "3"
 
 services:
-    redis:
-        image: redis:6.0-alpine
-        container_name: redis.redisratelimiting.docker
-        restart: unless-stopped
-        ports:
-            - 127.0.0.1:${REDIS_PORT}:6379  #container port: local server port
-        networks:
-            - global
-networks:
-    global:
-        external: true
+  redis:
+    image: redis:6.0-alpine
+    container_name: redis.redisratelimiting.docker
+    # restart: unless-stopped
+    restart: always
+    ports:
+      - "6379:6379" #container port: local server port
+    # networks:
+    #   - global
+    expose:
+      - 6379
+
+  webapp:
+    build: ./
+    container_name: redisapp.rate
+    depends_on:
+      - redis
+    tty: true
+    links:
+      - redis
+    environment:
+      # - AWS_ACCESS_KEY_ID=key
+      # - AWS_SECRET_ACCESS_KEY=secret
+      - NODE_PATH=dist/
+      - NODE_ENV=development
+      - PORT=9001
+      - REDIS_URL=redis://redis.redisratelimiting.docker
+    volumes:
+      - ./:/var/task
+      - ./prisma:/var/task/prisma
+    ports:
+      - "9000:8080"
+      - "9001:4000"
+    working_dir: /var/task
+    entrypoint: "/bin/bash"
+
+# networks:
+#   global:
+#     external: true
