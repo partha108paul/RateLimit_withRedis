@@ -2,11 +2,18 @@
    docker network create global //creating global network, in docker-container it's not required
    docker-compose up --build
    docker container list
-   docker exec -it contaier_name_or_id /bin/bash // to enter container bash
+      docker exec -it contaier_name_or_id /bin/bash // to enter container bash of webapp
    inside bash
-      npm i -D package_name // if any package is missing in package.json , it will reflect in both docker and local sys
+      (1st time only if required) npm i -D package_name // if any package is missing in package.json , it will reflect in both -- -- -- docker and local sys
       npm run build
-      node dist/index.js
+      npm run dev
+      *now hit apis
+  To test in Redis
+      docker exec -it contaier_name_or_id /bin/bash  //of redis
+      Inside bash
+          redis-cli
+             KEYS *
+  
 
 NOTE: to remove a file "rm -rf dist"
       to open a file in terminal "cat filename"
