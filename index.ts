@@ -10,9 +10,12 @@ const app = express();
 const { port } = require("./config").app;
 
 // app.use(requestIp.mw());
+console.log("Calling..........................");
 app.use(limiter);
 
 app.get("/api/ping", (req: Request, res: Response) => {
+  // console.log(requestIp.getClientIp(req));
+  console.log(req.socket.remoteAddress);
   return res.send("PONG");
 });
 
