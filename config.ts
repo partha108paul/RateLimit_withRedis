@@ -1,6 +1,7 @@
 require("dotenv").config();
 
-const sanitizeRedisUrl = (url:any) => url.replace(/^(redis\:\/\/)/, "");
+const sanitizeRedisUrl = (url: string | undefined) =>
+  url?.replace(/^(redis\:\/\/)/, "");
 
 const { REDIS_ENDPOINT_URI, REDIS_HOST, REDIS_PORT, REDIS_PASSWORD, PORT } =
   process.env;

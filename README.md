@@ -3,10 +3,9 @@
    docker-compose up --build
    docker container list
       docker exec -it contaier_name_or_id /bin/bash // to enter container bash of webapp
-   inside bash
-      (1st time only if required) npm i -D package_name // if any package is missing in package.json , it will reflect in both -- -- -- docker and local sys
-      npm run build
-      npm run dev
+      inside bash
+      (1st time only if required) npm i -D package_name // if any package is missing in package.json , it will reflect in both -- -- //-- docker and local sys
+      npm start
       *now hit apis
   To test in Redis
       docker exec -it contaier_name_or_id /bin/bash  //of redis
