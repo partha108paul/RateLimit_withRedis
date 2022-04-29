@@ -8,7 +8,7 @@
       npm start
       *now hit apis
   To test in Redis
-      docker exec -it contaier_name_or_id /bin/bash  //of redis
+      docker exec -it contaier_name_or_id /bin/sh  //for redis
       Inside bash
           redis-cli
              KEYS *
@@ -21,7 +21,8 @@ NOTE: to remove a file "rm -rf dist"
     from both PC and Phone(http://external_ip_of_pc:4000/api/ping)
     *Phone and PC should be connected with same WiFi
     *external_ip_of_pc will be available at System Preferences>Network>Click WiFi on left side of Dialog box>IP will be available at right side of the dialog box under status:Connected
-3. To enter redis cli 
-   Go to Docker-Desktop, Click CLI icon of the Redis container
-   use command: "redis-cli"
-   check IP addresses:  "KEYS *"
+
+3.EC2 deployment
+    https://medium.com/@umairnadeem/deploy-to-aws-using-docker-compose-simple-210d71f43e67
+    https://www.youtube.com/watch?v=FVNBdylX5po&list=PL6EYZe4MpYie326LYupt2dn85wtF1uOO3&index=58
+    https://ljmocic.medium.com/deploy-node-js-application-with-mysql-database-to-aws-ec2-using-docker-compose-3e5034c034ce

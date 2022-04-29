@@ -8,7 +8,7 @@ services:
     # restart: unless-stopped
     restart: always
     ports:
-      - "6379:6379" #container port: local server port
+      - "6381:6379" #container port: local server port
     # networks:
     #   - global
     expose:
@@ -38,8 +38,10 @@ services:
       # - "9000:8080"
       # - "9001:4000"
       - 4001:4001
+    # command: npm dev
     working_dir: /var/task
-    entrypoint: "/bin/bash"
+    # entrypoint: "/bin/bash"
+    entrypoint: ["npm", "start"]
 # networks:
 #   global:
 #     external: true

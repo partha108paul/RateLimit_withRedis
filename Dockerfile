@@ -7,8 +7,8 @@ COPY package*.json ./
 RUN npm install
 RUN npm run build
 
-CMD [ "/bin/bash" ]  
+# CMD [ "/bin/bash" ]  
 #Heroku run command
 
-# EXPOSE 4001
-# CMD ["npm", "start"]
+EXPOSE 4001
+CMD ["npm", "start"]
