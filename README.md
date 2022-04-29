@@ -26,3 +26,15 @@ NOTE: to remove a file "rm -rf dist"
     https://medium.com/@umairnadeem/deploy-to-aws-using-docker-compose-simple-210d71f43e67
     https://www.youtube.com/watch?v=FVNBdylX5po&list=PL6EYZe4MpYie326LYupt2dn85wtF1uOO3&index=58
     https://ljmocic.medium.com/deploy-node-js-application-with-mysql-database-to-aws-ec2-using-docker-compose-3e5034c034ce
+
+4. In terminal go to Downloads folder(where myawsPair.pem file exists), 
+   ssh -i myawsPair.pem ec2-user@13.233.255.180 // to enter remote ubuntu computer
+   cd REDIS_LIMITER_WORK
+   sudo docker-compose up -d
+   sudo docker ps // to check the containers
+   sudo docker exec -it container_id_of_redis_from_above_command_result /bin/sh 
+   redis-cli
+   KEYS *
+   To Edit docker file in EC2...vi Dockerfile, vi docker-compose.yml, press i to insert, modify, ESC to exit, :wq to save, then 'sudo docker-compose stop' then up again
+   HIT: http://ec2-13-233-255-180.ap-south-1.compute.amazonaws.com:4001/api/ping
+   http://13.233.255.180:4001/api/ping
